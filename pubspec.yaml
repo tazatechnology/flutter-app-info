@@ -1,0 +1,26 @@
+name: flutter_app_info
+description: Utility package to easily access device, platform, target, package, and app version information
+version: 1.0.0
+maintainer: Taza Technology LLC
+repository: https://github.com/tazatechnology/flutter_app_info
+issue_tracker: https://github.com/tazatechnology/flutter_app_info/issues
+homepage: https://tazatechnology.com
+documentation: https://github.com/tazatechnology/flutter_app_info
+
+environment:
+  sdk: '>=2.18.6 <3.0.0'
+  flutter: ">=1.17.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  
+  device_info_plus: ^8.0.0
+  package_info_plus: ^3.0.2
+  version: ^3.0.2
+  
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+  
