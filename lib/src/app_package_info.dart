@@ -4,6 +4,7 @@ part of app_device;
 // CLASS: AppPackageInfo
 // ==========================================
 
+/// Object encapsulating information about the installed package and version.
 class AppPackageInfo extends AppInfoBase {
   AppPackageInfo._(this._info) {
     appName = _info.appName;

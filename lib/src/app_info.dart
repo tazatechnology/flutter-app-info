@@ -27,15 +27,21 @@ abstract class AppInfoBase {
 // CLASS: AppInfoData
 // ==========================================
 
-/// Container data class with structured package, platform, and target information
+/// Object encapsulating the populated [AppPackageInfo], [AppPlatformInfo], and [AppTargetInfo] instances.
 class AppInfoData {
   AppInfoData._({
     required this.package,
     required this.platform,
     required this.target,
   });
+
+  /// Information about the installed package and version
   final AppPackageInfo package;
+
+  /// Information about the platform for which the app was built
   final AppPlatformInfo platform;
+
+  /// Information about the platform on which the app is currently executing
   final AppTargetInfo target;
 
   static Future<AppInfoData> get() async {
@@ -52,7 +58,7 @@ class AppInfoData {
 // CLASS: AppInfo
 // ==========================================
 
-/// [InheritedWidget] to distributed [AppInfoData] to application widget tree
+/// [InheritedWidget] to distribute [AppInfoData] to application widget tree
 class AppInfo extends InheritedWidget {
   const AppInfo({
     super.key,
@@ -95,12 +101,10 @@ class AppInfo extends InheritedWidget {
   /// Denotes app was built for web and is running on a mobile browser
   static final isMobileWebTarget = isWeb && isMobileTarget;
 
-  static AppInfo? maybeOf(BuildContext context) {
-    return context.dependOnInheritedWidgetOfExactType<AppInfo>();
-  }
-
+  /// Returns an instance of [AppInfoData] from [AppInfo] InheritedWidget
   static AppInfoData of(BuildContext context) {
-    final AppInfo? result = maybeOf(context);
+    final AppInfo? result =
+        context.dependOnInheritedWidgetOfExactType<AppInfo>();
     assert(result != null, 'No AppInfo InheritedWidget found in context');
     return result!.data;
   }

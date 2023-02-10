@@ -88,16 +88,16 @@ print(package.version > Version(1, 1, 1)); // false
 
 ## Retrieve build platform and device information
 
-All platform related information can be found under the following structure:
+All platform related information can be found under the following structure. Using `AppInfo` to access platform information **ensures that you get a safe, cross platform, way to access** these properties without having to worry about any platform errors when using [Platform](https://api.flutter.dev/flutter/dart-io/Platform-class.html) directly (e.g. when deployed to web).
 
 ```dart
 final platform = AppInfo.of(context).platform;
 
-print(platform.isWeb);
 print(platform.isAndroid);
 print(platform.isIOS);
 print(platform.isMacOS);
 print(platform.isLinux);
+print(platform.isWeb);
 print(platform.isWindows);
 print(platform.isFuchsia);
 print(platform.isDesktop);
@@ -123,9 +123,12 @@ This structure also contains the device information for the device that the app 
 platform.device
 ```
 
-The `device` property returns [BaseDeviceInfo](https://pub.dev/documentation/device_info_plus_platform_interface/latest/model_base_device_info/BaseDeviceInfo-class.html) so that the return type is consistent. At any point you may cast this property to the appropriate type if the proper checks are made:
+The `device` property returns [BaseDeviceInfo](https://pub.dev/documentation/device_info_plus_platform_interface/latest/model_base_device_info/BaseDeviceInfo-class.html) so that the return type is consistent. If desired, at any point you may cast this property to the appropriate type if the proper checks are made:
 
 ```dart
+/// Import to access device_info_plus package classes (e.g. MacOsDeviceInfo)
+import 'package:flutter_app_info/device_info_plus.dart';
+
 if (platform.isMacOS) {
   final device = platform.device as MacOsDeviceInfo;
 }
@@ -140,7 +143,13 @@ All of the `device_info_plus` specific types are linked below for quick referenc
 * [WebBrowserInfo](https://pub.dev/documentation/device_info_plus/latest/device_info_plus/WebBrowserInfo-class.html)
 * [WindowsDeviceInfo](https://pub.dev/documentation/device_info_plus/latest/device_info_plus/WindowsDeviceInfo-class.html)
 
-The platform information (which includes the `device` data) can be safely exported to JSON via:
+Although `BaseDeviceInfo` is not guaranteed Json-encodable (per `device_info_plus` documentation), `AppInfo` provides a safe encodable version:
+
+```dart
+platform.deviceJson
+```
+
+The platform information (which includes the `deviceJson` data) can be safely exported to JSON via:
 
 ```dart
 platform.toJson()
@@ -154,17 +163,18 @@ All platform target related information can be found under the following structu
 final target = AppInfo.of(context).target;
 
 print(target.defaultPlatform);
-print(target.isWeb);
 print(target.isAndroid);
 print(target.isIOS);
 print(target.isMacOS);
 print(target.isLinux);
+print(target.isWeb);
 print(target.isWindows);
 print(target.isFuchsia);
 print(target.isDesktop);
 print(target.isDesktopWeb);
 print(target.isMobile);
 print(target.isMobileWeb);
+print(target.isTablet);
 ```
 
 The target information can be safely exported to JSON via:

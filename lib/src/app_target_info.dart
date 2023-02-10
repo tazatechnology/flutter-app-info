@@ -4,6 +4,7 @@ part of app_device;
 // CLASS: AppTargetInfo
 // ==========================================
 
+/// Object encapsulating information about the platform on which the app is currently executing.
 class AppTargetInfo extends AppInfoBase {
   AppTargetInfo._({required MediaQueryData data}) {
     isTablet = AppInfo.isMobileTarget && data.size.shortestSide >= 550;
