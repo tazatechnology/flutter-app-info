@@ -30,7 +30,7 @@ class AppPackageInfo extends AppInfoBase {
   late final Version versionWithoutBuild;
 
   // ------------------------------------------
-  // METHOD: fetch
+  // METHOD: get
   // ------------------------------------------
 
   static Future<AppPackageInfo> get() async {

@@ -116,47 +116,50 @@ class PropTable extends StatelessWidget {
                 style: const TextStyle(fontWeight: FontWeight.bold),
               ),
             ),
-            Table(
-              border: TableBorder.all(color: Colors.grey.shade300),
-              defaultVerticalAlignment: TableCellVerticalAlignment.middle,
-              columnWidths: const {
-                0: IntrinsicColumnWidth(flex: 1),
-                1: FlexColumnWidth(2),
-              },
-              children: children
-                  .map(
-                    (e) => TableRow(
-                      decoration: BoxDecoration(
-                        color: children.indexOf(e).isEven
-                            ? Colors.grey.shade200
-                            : Theme.of(context).scaffoldBackgroundColor,
+            SizedBox(
+              width: MediaQuery.of(context).size.width.clamp(0, 1000) * 0.80,
+              child: Table(
+                border: TableBorder.all(color: Colors.grey.shade300),
+                defaultVerticalAlignment: TableCellVerticalAlignment.middle,
+                columnWidths: const {
+                  0: IntrinsicColumnWidth(flex: 1),
+                  1: FlexColumnWidth(2),
+                },
+                children: children
+                    .map(
+                      (e) => TableRow(
+                        decoration: BoxDecoration(
+                          color: children.indexOf(e).isEven
+                              ? Colors.grey.shade200
+                              : Theme.of(context).scaffoldBackgroundColor,
+                        ),
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.all(8),
+                            child: Text(
+                              e.prop,
+                              style: const TextStyle(
+                                fontFamily: 'Verdana',
+                                fontWeight: FontWeight.bold,
+                                fontSize: 12,
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(8),
+                            child: Text(
+                              e.value,
+                              style: const TextStyle(
+                                fontFamily: 'Verdana',
+                                fontSize: 12,
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.all(8),
-                          child: Text(
-                            e.prop,
-                            style: const TextStyle(
-                              fontFamily: 'Verdana',
-                              fontWeight: FontWeight.bold,
-                              fontSize: 12,
-                            ),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(8),
-                          child: Text(
-                            e.value,
-                            style: const TextStyle(
-                              fontFamily: 'Verdana',
-                              fontSize: 12,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  )
-                  .toList(),
+                    )
+                    .toList(),
+              ),
             )
           ],
         ),
@@ -212,7 +215,8 @@ class PlatformInfoTab extends StatelessWidget {
         Prop('isFuchsia', platform.isFuchsia),
         Prop('isDesktop', platform.isDesktop),
         Prop('isMobile', platform.isMobile),
-        Prop('device', encoder.convert(platform.device.data)),
+        Prop('device', 'BaseDeviceInfo'),
+        Prop('deviceJson', encoder.convert(platform.deviceJson)),
         Prop('executable', platform.executable),
         Prop('resolvedExecutable', platform.resolvedExecutable),
         Prop('executableArguments', platform.executableArguments),
@@ -258,6 +262,7 @@ class TargetInfoTab extends StatelessWidget {
         Prop('isDesktopWeb', target.isDesktopWeb),
         Prop('isMobile', target.isMobile),
         Prop('isMobileWeb', target.isMobileWeb),
+        Prop('isTablet', target.isTablet),
       ],
     );
   }
