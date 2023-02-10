@@ -68,10 +68,13 @@ class AppInfo extends InheritedWidget {
   static final isWeb = kIsWeb;
 
   /// Denotes app was built for a desktop platform
-  static final isDesktopPlatform = kIsWeb ? false : (Platform.isMacOS || Platform.isWindows || Platform.isLinux);
+  static final isDesktopPlatform = kIsWeb
+      ? false
+      : (Platform.isMacOS || Platform.isWindows || Platform.isLinux);
 
   /// Denotes app was built for a mobile platform
-  static final isMobilePlatform = kIsWeb ? false : (Platform.isAndroid || Platform.isIOS);
+  static final isMobilePlatform =
+      kIsWeb ? false : (Platform.isAndroid || Platform.isIOS);
 
   /// Denotes app is running for a desktop target
   static final isDesktopTarget = [

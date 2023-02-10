@@ -1,16 +1,12 @@
 # flutter_app_info
 
-This is a utility package that bundles capability of the following popular packages (so you do not need to directly depend on them) into a **single**, easy to access, `AppInfo` inherited widget:
+[![Pub](https://img.shields.io/pub/v/flutter_app_info.svg)](https://pub.dev/packages/flutter_app_info)
+
+[flutter_app_info](https://pub.dev/packages/flutter_app_info) is a utility package that bundles capability of the following popular packages (so you do not need to directly depend on them) into a **single**, easy to access, `AppInfo` inherited widget:
 
 * [device_info_plus](https://pub.dev/packages/device_info_plus)
 * [package_info_plus](https://pub.dev/packages/package_info_plus)
 * [version](https://pub.dev/packages/version)
-
-To use this package, simply import the root level library file:
-
-```dart
-import 'package:flutter_app_info/flutter_app_info.dart';
-```
 
 ## Is this package actively maintained?
 
@@ -35,6 +31,8 @@ void main() {
 Simply update the `main()` as seen below to wrap the root of your app. That's it! Now, the `AppInfoData` structure is available everywhere within your app without needing to call any of the `async` constructors multiple times should you need the data in multiple places.
 
 ```dart
+import 'package:flutter_app_info/flutter_app_info.dart';
+
 void main() async {
   runApp(
     AppInfo(
@@ -74,7 +72,7 @@ print(package.buildSignature);
 print(package.installerStore);
 ```
 
-The version information returns a [Version](https://pub.dev/documentation/version/latest/version/Version-class.html) object which is useful for comparison purposes as well as parsing in accordance with the Semantic Versioning [specification](http://semver.org/).
+The version information returns a [Version](https://pub.dev/documentation/version/latest/version/Version-class.html) object which is useful for comparison purposes as well as parsing in accordance with the Semantic Versioning [specification](https://semver.org/).
 
 ```dart
 print(package.version); // 1.0.0+1

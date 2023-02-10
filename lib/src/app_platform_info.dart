@@ -19,12 +19,14 @@ class AppPlatformInfo extends AppInfoBase {
   final bool isMobile = AppInfo.isMobilePlatform;
   final Map<String, String> environment = kIsWeb ? {} : Platform.environment;
   final String executable = kIsWeb ? '' : Platform.executable;
-  final List<String> executableArguments = kIsWeb ? [] : Platform.executableArguments;
+  final List<String> executableArguments =
+      kIsWeb ? [] : Platform.executableArguments;
   final String localHostname = kIsWeb ? '' : Platform.localHostname;
   final String localeName = kIsWeb ? '' : Platform.localeName;
   final int numberOfProcessors = kIsWeb ? 0 : Platform.numberOfProcessors;
   final String operatingSystem = kIsWeb ? '' : Platform.operatingSystem;
-  final String operatingSystemVersion = kIsWeb ? '' : Platform.operatingSystemVersion;
+  final String operatingSystemVersion =
+      kIsWeb ? '' : Platform.operatingSystemVersion;
   final String packageConfig = kIsWeb ? '' : Platform.packageConfig ?? '';
   final String pathSeparator = kIsWeb ? '' : Platform.pathSeparator;
   final String resolvedExecutable = kIsWeb ? '' : Platform.resolvedExecutable;
@@ -72,7 +74,10 @@ class AppPlatformInfo extends AppInfoBase {
         // Per BaseDeviceInfo documentation:
         // "Warning: The returned Map may not be JSON-encodable"
         // Protect the json encoding, default to string representation if not encodable
-        return MapEntry(key, jsonDecode(jsonEncode(value, toEncodable: (value) => value.toString())));
+        return MapEntry(
+            key,
+            jsonDecode(
+                jsonEncode(value, toEncodable: (value) => value.toString())));
       }),
     };
   }
