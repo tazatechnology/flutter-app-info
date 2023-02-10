@@ -1,0 +1,23 @@
+name: example
+description: An example for application for the flutter_app_info package
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+version: 1.0.1+2
+
+environment:
+  sdk: '>=2.19.2 <3.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  
+  flutter_app_info:
+    path: ../
+    
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^2.0.0
+
+flutter:
+  uses-material-design: true

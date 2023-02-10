@@ -13,10 +13,20 @@ class AppPackageInfo extends AppInfoBase {
     versionWithoutBuild = Version.parse(_info.version);
   }
   final PackageInfo _info;
+
+  /// The app name
   late final String appName;
+
+  /// The build signature
   late final String buildSignature;
+
+  /// The installer store
   late final String? installerStore;
+
+  /// The package version
   late final Version version;
+
+  /// The package version without the build
   late final Version versionWithoutBuild;
 
   // ------------------------------------------
