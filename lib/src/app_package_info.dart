@@ -6,14 +6,15 @@ part of app_device;
 
 /// Object encapsulating information about the installed package and version.
 class AppPackageInfo extends AppInfoBase {
-  AppPackageInfo._(this._info) {
+  AppPackageInfo._({required PackageInfo data}) {
+    _info = data;
     appName = _info.appName;
     buildSignature = _info.buildSignature;
     installerStore = _info.installerStore;
     version = Version.parse('${_info.version}+${_info.buildNumber}');
     versionWithoutBuild = Version.parse(_info.version);
   }
-  final PackageInfo _info;
+  late final PackageInfo _info;
 
   /// The app name
   late final String appName;
@@ -31,19 +32,10 @@ class AppPackageInfo extends AppInfoBase {
   late final Version versionWithoutBuild;
 
   // ------------------------------------------
-  // METHOD: get
-  // ------------------------------------------
-
-  static Future<AppPackageInfo> get() async {
-    WidgetsFlutterBinding.ensureInitialized();
-    return AppPackageInfo._(await PackageInfo.fromPlatform());
-  }
-
-  // ------------------------------------------
   // METHOD: toJson
   // ------------------------------------------
 
-  // Represent results as JSON map
+  /// Represent results as JSON map
   @override
   Map<String, Object> toJson() {
     return {
@@ -53,14 +45,5 @@ class AppPackageInfo extends AppInfoBase {
       'version': version,
       'versionWithoutBuild': versionWithoutBuild,
     }.map((key, value) => MapEntry(key, value.toString()));
-  }
-
-  // ------------------------------------------
-  // METHOD: toString
-  // ------------------------------------------
-
-  @override
-  String toString() {
-    return 'AppPackageInfo(${toJson()})';
   }
 }

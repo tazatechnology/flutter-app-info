@@ -24,10 +24,14 @@ class MyApp extends StatelessWidget {
   const MyApp({super.key});
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       title: 'Flutter App Info',
       debugShowCheckedModeBanner: false,
-      home: FlutterAppInfoExample(),
+      theme: ThemeData.light().copyWith(
+        splashColor: Colors.transparent,
+        splashFactory: NoSplash.splashFactory,
+      ),
+      home: const FlutterAppInfoExample(),
     );
   }
 }
@@ -49,28 +53,46 @@ class _FlutterAppInfoExampleState extends State<FlutterAppInfoExample>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        toolbarHeight: 0,
-        bottom: TabBar(
-          controller: controller,
-          tabs: [
-            const Text('Package Info'),
-            const Text('Platform Info'),
-            const Text('Target Info'),
-          ]
-              .map((e) => Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 6),
-                    child: e,
-                  ))
-              .toList(),
-        ),
-      ),
-      body: TabBarView(
-        controller: controller,
-        children: const [
-          PackageInfoTab(),
-          PlatformInfoTab(),
-          TargetInfoTab(),
+      body: Column(
+        children: [
+          Material(
+            color: const Color(0xff2a416f),
+            child: TabBar(
+              controller: controller,
+              labelColor: Colors.white,
+              unselectedLabelColor: Colors.grey.shade300,
+              indicatorColor: Colors.white,
+              indicatorWeight: 4,
+              indicatorPadding: const EdgeInsets.only(bottom: 2),
+              overlayColor: MaterialStateColor.resolveWith((states) {
+                if (states.contains(MaterialState.hovered)) {
+                  return Colors.white24;
+                } else {
+                  return Colors.transparent;
+                }
+              }),
+              tabs: [
+                const Text('Package Info'),
+                const Text('Platform Info'),
+                const Text('Target Info'),
+              ]
+                  .map((e) => Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 12),
+                        child: e,
+                      ))
+                  .toList(),
+            ),
+          ),
+          Expanded(
+            child: TabBarView(
+              controller: controller,
+              children: const [
+                PackageInfoTab(),
+                PlatformInfoTab(),
+                TargetInfoTab(),
+              ],
+            ),
+          ),
         ],
       ),
     );

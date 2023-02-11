@@ -7,6 +7,7 @@ part of app_device;
 /// Object encapsulating information about the platform on which the app is currently executing.
 class AppTargetInfo extends AppInfoBase {
   AppTargetInfo._({required MediaQueryData data}) {
+    /// 550 is a magic number denoting a common tablet shortest side breakpoint
     isTablet = AppInfo.isMobileTarget && data.size.shortestSide >= 550;
   }
 
@@ -50,20 +51,10 @@ class AppTargetInfo extends AppInfoBase {
   late final bool isTablet;
 
   // ------------------------------------------
-  // METHOD: get
-  // ------------------------------------------
-
-  static Future<AppTargetInfo> get() async {
-    return AppTargetInfo._(
-      data: MediaQueryData.fromWindow(WidgetsBinding.instance.window),
-    );
-  }
-
-  // ------------------------------------------
   // METHOD: toJson
   // ------------------------------------------
 
-  // Represent results as JSON map
+  /// Represent results as JSON map
   @override
   Map<String, Object> toJson() {
     return {
@@ -81,14 +72,5 @@ class AppTargetInfo extends AppInfoBase {
       'isMobileWeb': isMobileWeb,
       'isTablet': isTablet,
     };
-  }
-
-  // ------------------------------------------
-  // METHOD: toString
-  // ------------------------------------------
-
-  @override
-  String toString() {
-    return 'AppTargetInfo(${toJson()})';
   }
 }

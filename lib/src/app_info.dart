@@ -6,10 +6,10 @@ part of app_device;
 
 /// Common class for all structures provided by [AppInfoData]
 abstract class AppInfoBase {
-  // Represent results as JSON map
+  /// Represent results as JSON map
   Map<String, Object> toJson();
 
-  // Pretty print the JSON representation of the informational object
+  /// Pretty print the JSON representation of the informational object
   void prettyPrint() {
     var encoder = const JsonEncoder.withIndent('  ');
     final data = toJson();
@@ -47,9 +47,15 @@ class AppInfoData {
   static Future<AppInfoData> get() async {
     WidgetsFlutterBinding.ensureInitialized();
     return AppInfoData._(
-      package: await AppPackageInfo.get(),
-      platform: await AppPlatformInfo.get(),
-      target: await AppTargetInfo.get(),
+      package: AppPackageInfo._(
+        data: await PackageInfo.fromPlatform(),
+      ),
+      platform: AppPlatformInfo._(
+        data: await DeviceInfoPlugin().deviceInfo,
+      ),
+      target: AppTargetInfo._(
+        data: MediaQueryData.fromWindow(WidgetsBinding.instance.window),
+      ),
     );
   }
 }

@@ -6,7 +6,8 @@ part of app_device;
 
 /// Object encapsulating information about the platform for which the app was built.
 class AppPlatformInfo extends AppInfoBase {
-  AppPlatformInfo._(this.device) {
+  AppPlatformInfo._({required BaseDeviceInfo data}) {
+    device = data;
     // Per BaseDeviceInfo documentation:
     // "Warning: The returned Map may not be JSON-encodable"
     deviceJson = device.data.map((key, value) {
@@ -18,7 +19,7 @@ class AppPlatformInfo extends AppInfoBase {
   }
 
   /// Object encapsulating the device information. Depending on the current platform, this property can be downcast to [AndroidDeviceInfo], [IosDeviceInfo], [LinuxDeviceInfo], [MacOsDeviceInfo], [WebBrowserInfo], or [WindowsDeviceInfo],
-  final BaseDeviceInfo device;
+  late final BaseDeviceInfo device;
 
   /// JSON-encodable version of [BaseDeviceInfo.data] - valid for all device types. Although [BaseDeviceInfo.data] is not guaranteed to be JSON-encodable per documentation, this version protects the json encoding ands defaults to string representation if not encodable
   late final Map<String, dynamic> deviceJson;
@@ -92,14 +93,6 @@ class AppPlatformInfo extends AppInfoBase {
   final String version = kIsWeb ? '' : Platform.version;
 
   // ------------------------------------------
-  // METHOD: get
-  // ------------------------------------------
-
-  static Future<AppPlatformInfo> get() async {
-    return AppPlatformInfo._(await DeviceInfoPlugin().deviceInfo);
-  }
-
-  // ------------------------------------------
   // METHOD: toJson
   // ------------------------------------------
 
@@ -130,14 +123,5 @@ class AppPlatformInfo extends AppInfoBase {
       'version': version,
       'device': deviceJson,
     };
-  }
-
-  // ------------------------------------------
-  // METHOD: toString
-  // ------------------------------------------
-
-  @override
-  String toString() {
-    return 'AppPlatformInfo(${toJson()})';
   }
 }
