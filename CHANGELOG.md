@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.0.2
+
+* Update to `device_info_plus: ^8.2.0`
+* Update to `package_info_plus: ^3.1.0`
+
 ## 1.0.1
 
 * Addition of `deviceJson` and `isTablet` properties

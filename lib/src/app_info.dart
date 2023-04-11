@@ -44,6 +44,7 @@ class AppInfoData {
   /// Information about the platform on which the app is currently executing
   final AppTargetInfo target;
 
+  /// Retrieve an [AppInfoData] instance pre-populated with package, platform, and target data
   static Future<AppInfoData> get() async {
     WidgetsFlutterBinding.ensureInitialized();
     return AppInfoData._(
