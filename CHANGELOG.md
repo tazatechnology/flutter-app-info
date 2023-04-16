@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.3
+
+* Update to README
+
 ## 1.0.2
 
 * Update to `device_info_plus: ^8.2.0`

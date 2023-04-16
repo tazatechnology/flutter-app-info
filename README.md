@@ -210,3 +210,7 @@ This should **not** be required for most use cases, but should you need access t
 import 'package:flutter_app_info/package_info_plus.dart';
 import 'package:flutter_app_info/device_info_plus.dart';
 ```
+
+## Contibuting
+
+Please see the [flutter_app_info Github repository](https://github.com/tazatechnology/flutter_app_info).
