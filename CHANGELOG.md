@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.0.4
+
+* Update to `device_info_plus: ^8.2.1`
+* Update to `package_info_plus: ^3.1.1`
+
 ## 1.0.3
 
 * Update to README
