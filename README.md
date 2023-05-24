@@ -211,6 +211,6 @@ import 'package:flutter_app_info/package_info_plus.dart';
 import 'package:flutter_app_info/device_info_plus.dart';
 ```
 
-## Contibuting
+## Contributing
 
 Please see the [flutter_app_info Github repository](https://github.com/tazatechnology/flutter_app_info).
