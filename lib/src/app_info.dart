@@ -55,7 +55,7 @@ class AppInfoData {
         data: await DeviceInfoPlugin().deviceInfo,
       ),
       target: AppTargetInfo._(
-        data: MediaQueryData.fromWindow(WidgetsBinding.instance.window),
+        data: MediaQueryData.fromView(PlatformDispatcher.instance.views.first),
       ),
     );
   }

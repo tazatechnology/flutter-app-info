@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.1.2
+
+* More Dart 3 updates
+* Update to `device_info_plus: ^9.0.2`
+* Update to `package_info_plus: ^4.0.2`
+
 ## 1.1.1
 
 * Update to Dart 3
