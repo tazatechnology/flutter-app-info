@@ -14,6 +14,8 @@ Yes! This package is used in production applications and is actively maintained!
 
 ## Why use this package?
 
+Support for **all platforms**.
+
 Do you find yourself constantly writing the same device/package/version utility code every time you spin up a new project? If so, this might be a helpful package for you! This package will automatically fetch the `async` information from `device_info_plus` and `package_info_plus` at the launch of your app and make that available for every widget within your tree - in two lines of code.
 
 Along with making all of the properties from these to packages easily accessible in a consistent manner, the data is structured so that it is logical and easy to traverse. Further, there are certain restrictions to accessing platform related information on web and this package automatically protects for those cases and avoids unexpected errors.

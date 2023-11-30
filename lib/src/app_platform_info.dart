@@ -1,4 +1,4 @@
-part of app_device;
+part of 'index.dart';
 
 // ==========================================
 // CLASS: AppPlatformInfo
