@@ -64,8 +64,8 @@ class _FlutterAppInfoExampleState extends State<FlutterAppInfoExample>
               indicatorColor: Colors.white,
               indicatorWeight: 4,
               indicatorPadding: const EdgeInsets.only(bottom: 2),
-              overlayColor: MaterialStateColor.resolveWith((states) {
-                if (states.contains(MaterialState.hovered)) {
+              overlayColor: WidgetStateColor.resolveWith((states) {
+                if (states.contains(WidgetState.hovered)) {
                   return Colors.white24;
                 } else {
                   return Colors.transparent;
@@ -205,6 +205,7 @@ class PackageInfoTab extends StatelessWidget {
       title: 'Information about the installed package and version',
       children: [
         Prop('appName', package.appName),
+        Prop('packageName', package.packageName),
         Prop('buildSignature', package.buildSignature),
         Prop('installerStore', package.installerStore),
         Prop('version', package.version.toString()),

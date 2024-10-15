@@ -1,5 +1,10 @@
 # Changelog
 
+## 3.0.0
+
+* Update to `device_info_plus: ^11.0.0`
+* Update to `package_info_plus: ^8.0.3`
+
 ## 2.0.0
 
 * Update to `device_info_plus: ^9.1.1`

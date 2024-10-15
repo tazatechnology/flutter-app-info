@@ -7,11 +7,11 @@ part of 'index.dart';
 /// Common class for all structures provided by [AppInfoData]
 abstract class AppInfoBase {
   /// Represent results as JSON map
-  Map<String, Object> toJson();
+  Map<String, dynamic> toJson();
 
   /// Pretty print the JSON representation of the informational object
   void prettyPrint() {
-    var encoder = const JsonEncoder.withIndent('  ');
+    const encoder = JsonEncoder.withIndent('  ');
     final data = toJson();
     for (final k in data.keys) {
       if (data[k] is Map) {
@@ -67,10 +67,11 @@ class AppInfoData {
 
 /// [InheritedWidget] to distribute [AppInfoData] to application widget tree
 class AppInfo extends InheritedWidget {
+  /// Create an [AppInfo] InheritedWidget with [AppInfoData] instance
   const AppInfo({
-    super.key,
     required this.data,
     required super.child,
+    super.key,
   });
 
   /// Instance of [AppInfoData] provided by [AppInfo] [InheritedWidget]
@@ -81,13 +82,11 @@ class AppInfo extends InheritedWidget {
   static final isWeb = kIsWeb;
 
   /// Denotes app was built for a desktop platform
-  static final isDesktopPlatform = kIsWeb
-      ? false
-      : (Platform.isMacOS || Platform.isWindows || Platform.isLinux);
+  static final isDesktopPlatform =
+      Platform.isMacOS || Platform.isWindows || Platform.isLinux;
 
   /// Denotes app was built for a mobile platform
-  static final isMobilePlatform =
-      kIsWeb ? false : (Platform.isAndroid || Platform.isIOS);
+  static final isMobilePlatform = Platform.isAndroid || Platform.isIOS;
 
   /// Denotes app is running for a desktop target
   static final isDesktopTarget = [
@@ -110,8 +109,7 @@ class AppInfo extends InheritedWidget {
 
   /// Returns an instance of [AppInfoData] from [AppInfo] InheritedWidget
   static AppInfoData of(BuildContext context) {
-    final AppInfo? result =
-        context.dependOnInheritedWidgetOfExactType<AppInfo>();
+    final result = context.dependOnInheritedWidgetOfExactType<AppInfo>();
     assert(result != null, 'No AppInfo InheritedWidget found in context');
     return result!.data;
   }

@@ -9,6 +9,7 @@ class AppPackageInfo extends AppInfoBase {
   AppPackageInfo._({required PackageInfo data}) {
     _info = data;
     appName = _info.appName;
+    packageName = _info.packageName;
     buildSignature = _info.buildSignature;
     installerStore = _info.installerStore;
     version = Version.parse('${_info.version}+${_info.buildNumber}');
@@ -18,6 +19,9 @@ class AppPackageInfo extends AppInfoBase {
 
   /// The app name
   late final String appName;
+
+  /// The package name
+  late final String packageName;
 
   /// The build signature
   late final String buildSignature;
@@ -37,9 +41,10 @@ class AppPackageInfo extends AppInfoBase {
 
   /// Represent results as JSON map
   @override
-  Map<String, Object> toJson() {
+  Map<String, String> toJson() {
     return {
       'appName': appName,
+      'packageName': packageName,
       'buildSignature': buildSignature,
       'installerStore': installerStore,
       'version': version,

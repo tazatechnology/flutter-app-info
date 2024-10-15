@@ -2,11 +2,11 @@
 
 [![Pub](https://img.shields.io/pub/v/flutter_app_info.svg)](https://pub.dev/packages/flutter_app_info)
 
-[flutter_app_info](https://pub.dev/packages/flutter_app_info) is a utility package that bundles capability of the following popular packages (so you do not need to directly depend on them) into a **single**, easy to access, `AppInfo` inherited widget:
+[`flutter_app_info`](https://pub.dev/packages/flutter_app_info) is a utility package that bundles capability of the following popular packages (so you do not need to directly depend on them) into a **single**, easy to access, `AppInfo` inherited widget:
 
-* [device_info_plus](https://pub.dev/packages/device_info_plus)
-* [package_info_plus](https://pub.dev/packages/package_info_plus)
-* [version](https://pub.dev/packages/version)
+* [`device_info_plus`](https://pub.dev/packages/device_info_plus)
+* [`package_info_plus`](https://pub.dev/packages/package_info_plus)
+* [`version`](https://pub.dev/packages/version)
 
 ## Is this package actively maintained?
 
@@ -215,4 +215,4 @@ import 'package:flutter_app_info/device_info_plus.dart';
 
 ## Contributing
 
-Please see the [flutter_app_info Github repository](https://github.com/tazatechnology/flutter_app_info).
+Please see the [`flutter_app_info`](https://github.com/tazatechnology/flutter_app_info)  Github repository.

@@ -28,22 +28,22 @@ class AppPlatformInfo extends AppInfoBase {
   final bool isWeb = kIsWeb;
 
   /// Indicates application was compiled to run on Android (see [Platform.isAndroid])
-  final bool isAndroid = kIsWeb ? false : Platform.isAndroid;
+  final bool isAndroid = !kIsWeb && Platform.isAndroid;
 
   /// Indicates application was compiled to run on iOS (see [Platform.isIOS])
-  final bool isIOS = kIsWeb ? false : Platform.isIOS;
+  final bool isIOS = !kIsWeb && Platform.isIOS;
 
   /// Indicates application was compiled to run on MacOS (see [Platform.isMacOS])
-  final bool isMacOS = kIsWeb ? false : Platform.isMacOS;
+  final bool isMacOS = !kIsWeb && Platform.isMacOS;
 
   /// Indicates application was compiled to run on Linux (see [Platform.isLinux])
-  final bool isLinux = kIsWeb ? false : Platform.isLinux;
+  final bool isLinux = !kIsWeb && Platform.isLinux;
 
   /// Indicates application was compiled to run on Windows (see [Platform.isWindows])
-  final bool isWindows = kIsWeb ? false : Platform.isWindows;
+  final bool isWindows = !kIsWeb && Platform.isWindows;
 
   /// Indicates application was compiled to run on Fuchsia (see [Platform.isFuchsia])
-  final bool isFuchsia = kIsWeb ? false : Platform.isFuchsia;
+  final bool isFuchsia = !kIsWeb && Platform.isFuchsia;
 
   /// Indicates application was compiled to run on a desktop platform
   final bool isDesktop = AppInfo.isDesktopPlatform;
@@ -98,7 +98,7 @@ class AppPlatformInfo extends AppInfoBase {
 
   /// Represent results as JSON map
   @override
-  Map<String, Object> toJson() {
+  Map<String, dynamic> toJson() {
     return {
       'isWeb': isWeb,
       'isAndroid': isAndroid,

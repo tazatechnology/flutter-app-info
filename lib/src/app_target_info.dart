@@ -56,7 +56,7 @@ class AppTargetInfo extends AppInfoBase {
 
   /// Represent results as JSON map
   @override
-  Map<String, Object> toJson() {
+  Map<String, dynamic> toJson() {
     return {
       'defaultPlatform': defaultPlatform.name,
       'isWeb': isWeb,

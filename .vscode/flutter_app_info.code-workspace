@@ -1,0 +1,26 @@
+{
+	"folders": [
+		{
+			"name": "flutter-app-info",
+			"path": "../",
+		},
+		{
+			"name": "example (app)",
+			"path": "../example",
+		},
+	],
+	"settings": {
+		"files.exclude": {
+			// Hide certain folders from side bar
+			"example": true,
+			"**/build": true,
+			"**/.dart_tool": true,
+			"**/.flutter-plugins": true,
+			"**/.flutter-plugins-dependencies": true,
+			"**/pubspec.lock": true,
+			"**/.metadata": true,
+			"**/node_modules": true,
+			"**/package-lock.json": true,
+		},
+	},
+}
