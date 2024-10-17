@@ -12,7 +12,11 @@ class AppPackageInfo extends AppInfoBase {
     packageName = _info.packageName;
     buildSignature = _info.buildSignature;
     installerStore = _info.installerStore;
-    version = Version.parse('${_info.version}+${_info.buildNumber}');
+    if (_info.buildNumber.isNotEmpty) {
+      version = Version.parse('${_info.version}+${_info.buildNumber}');
+    } else {
+      version = Version.parse(_info.version);
+    }
     versionWithoutBuild = Version.parse(_info.version);
   }
   late final PackageInfo _info;

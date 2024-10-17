@@ -1,5 +1,9 @@
 # Changelog
 
+## 3.0.1
+
+* Fix version parsing when build number is not defined
+
 ## 3.0.0
 
 * Update to `device_info_plus: ^11.0.0`
