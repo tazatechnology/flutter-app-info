@@ -18,13 +18,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Repository
+      - name: Checkout
         uses: actions/checkout@v4
-
-      - uses: subosito/flutter-action@v2
         with:
-          channel: 'stable'
-          flutter-version: 3.24.3
+          fetch-depth: 0
+
+      - name: Flutter Setup
+        uses: ./.github/actions/flutter-setup
 
       - name: Get Id Token
         uses: actions/github-script@v6

@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.0.2
+
+* Add protection for bad version strings
+* Update to `device_info_plus: ^11.1.0`
+* Update to `package_info_plus: ^8.1.0`
+
 ## 3.0.1
 
 * Fix version parsing when build number is not defined

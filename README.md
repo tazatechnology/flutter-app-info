@@ -138,12 +138,12 @@ if (platform.isMacOS) {
 
 All of the `device_info_plus` specific types are linked below for quick reference:
 
-* [AndroidDeviceInfo](https://pub.dev/documentation/device_info_plus/latest/device_info_plus/AndroidDeviceInfo-class.html)
-* [IosDeviceInfo](https://pub.dev/documentation/device_info_plus/latest/device_info_plus/IosDeviceInfo-class.html)
-* [LinuxDeviceInfo](https://pub.dev/documentation/device_info_plus/latest/device_info_plus/LinuxDeviceInfo-class.html)
-* [MacOsDeviceInfo](https://pub.dev/documentation/device_info_plus/latest/device_info_plus/MacOsDeviceInfo-class.html)
-* [WebBrowserInfo](https://pub.dev/documentation/device_info_plus/latest/device_info_plus/WebBrowserInfo-class.html)
-* [WindowsDeviceInfo](https://pub.dev/documentation/device_info_plus/latest/device_info_plus/WindowsDeviceInfo-class.html)
+* [`AndroidDeviceInfo`](https://pub.dev/documentation/device_info_plus/latest/device_info_plus/AndroidDeviceInfo-class.html)
+* [`IosDeviceInfo`](https://pub.dev/documentation/device_info_plus/latest/device_info_plus/IosDeviceInfo-class.html)
+* [`LinuxDeviceInfo`](https://pub.dev/documentation/device_info_plus/latest/device_info_plus/LinuxDeviceInfo-class.html)
+* [`MacOsDeviceInfo`](https://pub.dev/documentation/device_info_plus/latest/device_info_plus/MacOsDeviceInfo-class.html)
+* [`WebBrowserInfo`](https://pub.dev/documentation/device_info_plus/latest/device_info_plus/WebBrowserInfo-class.html)
+* [`WindowsDeviceInfo`](https://pub.dev/documentation/device_info_plus/latest/device_info_plus/WindowsDeviceInfo-class.html)
 
 Although `BaseDeviceInfo` is not guaranteed Json-encodable (per `device_info_plus` documentation), `AppInfo` provides a safe encodable version:
 

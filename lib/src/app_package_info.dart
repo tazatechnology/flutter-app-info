@@ -10,14 +10,34 @@ class AppPackageInfo extends AppInfoBase {
     _info = data;
     appName = _info.appName;
     packageName = _info.packageName;
-    buildSignature = _info.buildSignature;
     installerStore = _info.installerStore;
-    if (_info.buildNumber.isNotEmpty) {
-      version = Version.parse('${_info.version}+${_info.buildNumber}');
+    buildSignature = _info.buildSignature;
+    buildNumber = _info.buildNumber;
+    // Define the complete version string
+    String versionString;
+    if (buildNumber.isNotEmpty) {
+      versionString = '${_info.version}+$buildNumber';
     } else {
-      version = Version.parse(_info.version);
+      versionString = _info.version;
     }
-    versionWithoutBuild = Version.parse(_info.version);
+    // Parse version (may contain build)
+    try {
+      version = Version.parse(versionString);
+    } catch (e) {
+      version = Version.parse('0');
+      if (kDebugMode) {
+        print('Error parsing package version ("$versionString") - $e');
+      }
+    }
+    // Parse version without build
+    try {
+      versionWithoutBuild = Version.parse(_info.version);
+    } catch (e) {
+      versionWithoutBuild = Version.parse('0');
+      if (kDebugMode) {
+        print('Error parsing package version ("${_info.version}") - $e');
+      }
+    }
   }
   late final PackageInfo _info;
 
@@ -27,16 +47,19 @@ class AppPackageInfo extends AppInfoBase {
   /// The package name
   late final String packageName;
 
-  /// The build signature
-  late final String buildSignature;
-
   /// The installer store
   late final String? installerStore;
 
-  /// The package version
+  /// The build signature
+  late final String buildSignature;
+
+  /// The package build number
+  late final String buildNumber;
+
+  /// The package version - as a [Version] object
   late final Version version;
 
-  /// The package version without the build
+  /// The package version without the build - as a [Version] object
   late final Version versionWithoutBuild;
 
   // ------------------------------------------
