@@ -1,6 +1,6 @@
 name: flutter_app_info
 description: Utility package to easily access device, platform, target, package, and app version information
-version: 3.0.2
+version: 3.0.3
 maintainer: Taza Technology LLC
 repository: https://github.com/tazatechnology/flutter_app_info
 issue_tracker: https://github.com/tazatechnology/flutter_app_info/issues

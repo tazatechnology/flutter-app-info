@@ -1,5 +1,9 @@
 # Changelog
 
+## 3.0.3
+
+* Loosen version constraints for dependencies
+
 ## 3.0.2
 
 * Add protection for bad version strings
