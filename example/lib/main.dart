@@ -79,7 +79,7 @@ class _FlutterAppInfoExampleState extends State<FlutterAppInfoExample>
                   .map((e) => Padding(
                         padding: const EdgeInsets.symmetric(vertical: 12),
                         child: e,
-                      ))
+                      ),)
                   .toList(),
             ),
           ),
@@ -117,9 +117,7 @@ class Prop {
 
 class PropTable extends StatelessWidget {
   const PropTable({
-    super.key,
-    required this.title,
-    required this.children,
+    required this.title, required this.children, super.key,
   });
   final String title;
   final List<Prop> children;
@@ -182,7 +180,7 @@ class PropTable extends StatelessWidget {
                     )
                     .toList(),
               ),
-            )
+            ),
           ],
         ),
       ),
@@ -225,7 +223,7 @@ class PlatformInfoTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final platform = AppInfo.of(context).platform;
-    var encoder = const JsonEncoder.withIndent('  ');
+    const encoder = JsonEncoder.withIndent('  ');
     return PropTable(
       title: 'Information about the platform for which the app was built',
       children: [
