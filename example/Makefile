@@ -9,7 +9,7 @@ init:
 	@find $(ROOT) -name pubspec.yaml -execdir bash -c "pwd && flutter pub get" \;
 
 code:
-	@code $(ROOT)/.vscode/flutter_tailwind_ui.code-workspace
+	@make -C $(ROOT) code
 
 outdated:
 	@dart pub outdated $(ARGS)
