@@ -12,20 +12,17 @@ code:
 	@code $(ROOT)/.vscode/flutter_tailwind_ui.code-workspace
 
 outdated:
-	@flutter pub outdated $(ARGS)
+	@dart pub outdated $(ARGS)
 
 upgrade:
-	@flutter pub upgrade $(ARGS)
+	@dart pub upgrade $(ARGS)
 
 analyze:
-	@flutter analyze $(ARGS)
+	@dart analyze $(ARGS)
 
 format:
 	@dart format lib
 	@dart fix --apply
-
-format-ci:
-	@dart format lib --set-exit-if-changed
 
 test:
 	@flutter test -r expanded $(ARGS)
